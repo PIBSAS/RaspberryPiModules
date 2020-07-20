@@ -5,7 +5,7 @@ Que lo disfruten
 En los títulos "Código de.." se encuentra el hiperenlace a el respectivo código.
 En las fotos de Fritzing se encuentra el hyperenlace a dicho Fritzing.
 
-![alt text](https://raw.githubusercontent.com/Luciano2018/RaspberryPiModules/master/Book/Portad.png)
+![alt text](https://raw.githubusercontent.com/Luciano2018/RaspberryPiModules/master/Book/Portada.png)
 
 # Autor: Luciano Rabassa
 
