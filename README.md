@@ -1,6 +1,9 @@
 # Libro: "Tutoriales sobre módulos para Arduino y Raspberry Pi"
 Codigos python para Raspberry Pi 4B, Del kit 37 in 1 para Arduino.
-Que lo disfruten
+
+# Adquirilo en Google Play Books
+https://play.google.com/store/books/details/Luciano_Rabassa_Tutoriales_sobre_m%C3%B3dulos_para_Ardu?id=J9QxEAAAQBAJ
+
 
 En los títulos "Código de.." se encuentra el hiperenlace a el respectivo código.
 En las fotos de Fritzing se encuentra el hyperenlace a dicho Fritzing.
@@ -10,7 +13,10 @@ En las fotos de Fritzing se encuentra el hyperenlace a dicho Fritzing.
 # Autor: Luciano Rabassa
 
 # Raspberry Pi Buenos Aires Web:
-https://sites.google.com/view/raspberryargentina/
+https://sites.google.com/view/raspberrypibuenosaires
 
 # Facebook:
 https://www.facebook.com/groups/RaspberryPiBuenosAires/
+
+# Youtube:
+https://www.youtube.com/c/LucianoRabassaRaspberryPiBuenosAires
