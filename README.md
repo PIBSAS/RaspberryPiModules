@@ -15,8 +15,5 @@ En las fotos de Fritzing se encuentra el hyperenlace a dicho Fritzing.
 # Raspberry Pi Buenos Aires Web:
 https://sites.google.com/view/raspberrypibuenosaires
 
-# Facebook:
-https://www.facebook.com/groups/RaspberryPiBuenosAires/
-
 # Youtube:
 https://www.youtube.com/c/LucianoRabassaRaspberryPiBuenosAires
