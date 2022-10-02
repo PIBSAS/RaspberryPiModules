@@ -8,7 +8,9 @@ https://play.google.com/store/books/details/Luciano_Rabassa_Tutoriales_sobre_m%C
 En los títulos "Código de.." se encuentra el hiperenlace a el respectivo código.
 En las fotos de Fritzing se encuentra el hyperenlace a dicho Fritzing.
 
+<p align="center">
 ![alt text](https://raw.githubusercontent.com/Luciano2018/RaspberryPiModules/master/Book/Portada.png)
+</p>
 
 # Autor: Luciano Rabassa
 
