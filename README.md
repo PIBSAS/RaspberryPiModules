@@ -28,4 +28,4 @@ https://www.youtube.com/c/LucianoRabassaRaspberryPiBuenosAires
 </a>
 </p>
 
-[![Invitame un café en cafecito.app](https://cdn.cafecito.app/imgs/buttons/button_6.svg)](https://cafecito.app/raspberrypibsas)
+[![Invitame un café en cafecito.app](https://cdn.cafecito.app/imgs/buttons/button_6.svg)](https://cafecito.app/lucianoraspberrypi)
