@@ -1,62 +1,92 @@
-//Al compilar mantener el Pin_S desconectado del Pin 0 de Arduino o dará fallo
-int Pin_S = 0;
-const int muestreo = 60;
-int valor;
-
+int rawValue;
+bool heartbeatDetected(int IRSensorPin, int delay)
+{
+  static int maxValue = 0;
+  static bool isPeak = false;
+  bool result = false;
+      
+  rawValue = analogRead(IRSensorPin);
+  // Here the current voltage value at the photo transistor is read out and stored temporarily in the rawValue variable
+  rawValue *= (1000 / delay);
+  
+  // Should the current value deviate too far from the last maximum value
+  // (e.g. because the finger was put on again or taken away)
+  // So the MaxValue is reset to get a new base.
+  if(rawValue * 4L <maxValue)
+  {
+    maxValue = rawValue * 0.8;
+  } // Detect new peak
+  
+  if(rawValue > maxValue - (1000 / delay))
+  {
+    // The actual peak is detected here. Should a new RawValue be bigger
+    // as the last maximum value, it will be recognized as the top of the recorded data.
+    if(rawValue > maxValue)
+    {
+      maxValue = rawValue;
+    }
+    // Only one heartbeat should be assigned to the recognized peak
+    if(isPeak == false)
+    {
+      result = true;
+    }
+    isPeak = true;
+  }else if(rawValue < maxValue - (3000 / delay))
+  {
+    isPeak = false;
+    // This is the maximum value for each pass
+    // slightly reduced again. The reason for this is that
+    // not only the value is otherwise always stable with every stroke
+    // would be the same or smaller, but also,
+    // if the finger should move minimally and thus
+    // the signal would generally become weaker.
+    maxValue -= (1000 / delay);
+ }
+  return result;
+}
+  
+///////////////////////////////
+// Arduino main code         //
+///////////////////////////////
+int ledPin = 13;
+int analogPin = A0;
+  
 void setup()
 {
-  pinMode(LED_BUILTIN, OUTPUT);
+  // The built-in Arduino LED (Digital 13) is used here for output
+  pinMode(ledPin, OUTPUT);
+  // Serial output initialization
   Serial.begin(9600);
-  Serial.println("Latidos");
+  Serial.println("Heartbeat detection sample code.");
 }
-
+  
+const int delayMsec = 60; // 100msec per sample
+  
+// The main program has two tasks:
+// - If a heartbeat is recognized, the LED flashes briefly
+// - The pulse is calculated and output on the serial output.
+  
 void loop()
 {
-  static int latido_por_segundos = 0;
-  int pulsobpm = 0;
+  static int beatMsec = 0;
+  int heartRateBPM = 0;
+  if(heartbeatDetected(analogPin, delayMsec))
+  {
+    heartRateBPM = 60000 / beatMsec;
+    // LED output at heartbeat
+    digitalWrite(ledPin, 1);
   
-  Serial.println(valor);
-  if(deteccion(Pin_S, muestreo))
+    // Serial data output
+    Serial.print("Pulse detected:");
+    Serial.println(heartRateBPM);
+      
+    beatMsec = 0;
+    
+  }else
   {
-    pulsobpm = 60000 / latido_por_segundos;
-    digitalWrite(LED_BUILTIN, HIGH);
-    Serial.print(valor);
-    Serial.print(",");
-    Serial.println(pulsobpm);
-    latido_por_segundos = 0;
+    digitalWrite(ledPin, 0);
   }
-  else
-  {
-    digitalWrite(LED_BUILTIN, LOW);
-  }
-  delay(muestreo);
-  latido_por_segundos = latido_por_segundos + muestreo;
+  delay(delayMsec);
+  beatMsec += delayMsec;
 }
-
-bool deteccion(int IrSensor, int retardo)
-{
-  static int maximo = 0;
-  static bool pico = false;
-  bool resultado = false;
-  valor = analogRead(IrSensor);
-  valor = valor * (1000/retardo);
-  if(valor * 4L < maximo)
-  {
-    maximo = valor * 0.8;
-    if(valor > maximo)
-    {
-      maximo = valor;
-    }
-    if(pico == false)
-    {
-      resultado = true;
-    }
-    pico = true;
-  }
-  else if(valor < maximo - (3000 / retardo))
-  {
-    pico = false;
-    maximo = maximo - (1000 / retardo);
-  }
-  return resultado;
-}
+//End
