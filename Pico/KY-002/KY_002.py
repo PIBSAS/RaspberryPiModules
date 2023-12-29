@@ -1,4 +1,5 @@
 from machine import Pin
+from time import sleep
 
 led = Pin(25, Pin.OUT)
 sensor = Pin(22, Pin.IN)
@@ -12,4 +13,5 @@ while True:
         led.off()
         print("OFF")
         print(sensor.value())
+    sleep(1)
 #End
