@@ -1,5 +1,5 @@
 from machine import Pin
-import utime
+from utime import sleep
 # Initialize the LED lights and buttons
 led = Pin("LED", Pin.OUT)
 key = Pin(28, Pin.IN, Pin.PULL_UP)
@@ -23,7 +23,7 @@ while True:
     if press_state() == True:
         print("press")
         led_on()
-        utime.sleep(.1)
+        sleep(.1)
     else:
         led_off()
 #End
