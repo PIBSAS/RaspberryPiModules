@@ -3,6 +3,7 @@
 from machine import Pin
 from ir_tx.nec import NEC
 from time import sleep
+
 nec = NEC(Pin(17, Pin.OUT, value = 0))
 
 while True:
