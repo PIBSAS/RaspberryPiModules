@@ -1,7 +1,7 @@
 from machine import Pin
 import utime
 # Initialize the LED lights and buttons
-led = Pin(LED, Pin.OUT)
+led = Pin("LED", Pin.OUT)
 key = Pin(28, Pin.IN, Pin.PULL_UP)
 # Open the LED light that comes with the Pico board
 def led_on():
