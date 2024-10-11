@@ -14,11 +14,11 @@ En las fotos de Fritzing se encuentra el hyperenlace a dicho Fritzing.
 
 # Autor: Luciano Rabassa
 
-# Raspberry Pi Buenos Aires Web:
-https://sites.google.com/view/raspberrypibuenosaires
+# Luciano's tech:
+https://sites.google.com/view/lucianostech
 
 # Youtube:
-https://www.youtube.com/c/LucianoRabassaRaspberryPiBuenosAires
+https://www.youtube.com/c/lucianostech
 
 <h1 align="center"> Invite a Coffee</h1>
 <p align="center">
